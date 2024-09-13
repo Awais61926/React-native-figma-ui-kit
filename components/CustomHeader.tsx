@@ -65,6 +65,7 @@ const CustomHeader = ({
                     )
                 }
             </View>
+            
         </View>
     );
 }

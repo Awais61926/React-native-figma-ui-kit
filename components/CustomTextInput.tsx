@@ -10,18 +10,18 @@ const CustomTextInput = ({ padd,placeHolder, value,rightText }: inputType) => {
     return (
         <View>
             {
-                placeHolder && rightText ? (
+                placeHolder? (
                     <View style={{padding:padd}}>
                         <TextInput
                             placeholder={placeHolder}
                             
-                            style={{ width: 343, height: 50, backgroundColor: '#E8E8E8', borderColor: 'lightgray', borderRadius: 9, }}
+                            style={{ width: 343, height: 50, backgroundColor: '#E8E8E8', borderColor: 'lightgray', borderRadius: 2, }}
                         />
                     </View>
                 ) : (
                     <TextInput
 
-                        style={{ width: 343, height: 50, backgroundColor: '#E8E8E8', borderColor: 'lightgray', borderRadius: 9 }}
+                        style={{ width: 343, height: 50, backgroundColor: '#E8E8E8', borderColor: 'lightgray', borderRadius: 2 }}
                     />
                 )
             }
