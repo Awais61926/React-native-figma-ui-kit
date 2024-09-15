@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button,TouchableOpacity } from 'react-native';
 import CustomHeader from '../components/CustomHeader';
 import { useState } from 'react';
 import { TextInput } from 'react-native';
 import CheckBox from 'react-native-check-box'
 import CustomTextInput from '../components/CustomTextInput';
 import CustomButton from '../components/CustomButton';
+import LogIn from './LogIn';
 function SignUp({navigation}) {
   const [isChecked,setisChecked]=useState(false);
     return (
@@ -15,6 +16,8 @@ function SignUp({navigation}) {
         centertitle='Sign Up'
         righticon={false}
         righttext='Login'
+        onRightTextPress={() => navigation.navigate('LogIn')}
+        
         />
         <View style={{alignItems:'center',margin:20}}>
         <CustomTextInput
@@ -27,7 +30,11 @@ function SignUp({navigation}) {
         
         </View>
 
-        <View style={{alignItems:'center', paddingTop:0}}>
+        <View style={{alignItems:'center', paddingTop:0,paddingBottom:10}}>
+        
+        </View>
+        <View  style={{height:'15%', alignItems:'center', justifyContent:'center'}}>
+          <View style={{paddingBottom:8}}>
         <CheckBox
         isChecked={isChecked} onClick={()=>setisChecked(!isChecked)}
         rightText='I would like to receive your newsletter and other promotional information.'
@@ -38,7 +45,13 @@ function SignUp({navigation}) {
 
         />
         </View>
-        <CustomButton title='Sign Up'/>
+            <CustomButton
+            title='SignUp'
+            />
+            <TouchableOpacity>
+                <Text style={{fontSize:20,color:'#5DB075',fontWeight:'600'}} >Forgot your password?</Text>
+            </TouchableOpacity>
+        </View>
 
 
 

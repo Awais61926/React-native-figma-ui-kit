@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Touchable, TouchableOpacity } from "react-native";
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -11,18 +11,22 @@ type headertype = {
     leftIconName?: string,
     centertitle?: string,
     rightIconType?: any,
-    leftIconType?: any
+    leftIconType?: any,
+    lefttext?:string,
+    onRightTextPress?:()=> void,
 }
 
 const CustomHeader = ({
     lefticon,
+    lefttext,
     righticon,
     righttext,
     rightIconName = 'close',
     leftIconName = 'close',
     centertitle,
     rightIconType = MaterialIcons,
-    leftIconType = MaterialIcons
+    leftIconType = MaterialIcons,
+    onRightTextPress
 }: headertype) => {
 
     const RightIconComponent = rightIconType;
@@ -40,8 +44,13 @@ const CustomHeader = ({
                 {
                     lefticon ? (
                         <LeftIconComponent name={leftIconName} size={30} />
-                    ) : (
-                        <View style={{ width: 30 }} />
+                    ) :
+                    lefttext ? (
+                        <View>
+                            <Text>{lefttext}</Text>
+                            </View>
+                    ): (
+                        <View></View>
                     )
                 }
 
@@ -49,7 +58,7 @@ const CustomHeader = ({
                 <View>
                     {
                         centertitle ? (
-                            <Text style={{ fontSize: 20, fontWeight: '600', color: 'black' }}>{centertitle}</Text>
+                            <Text style={{ fontSize: 30, fontWeight: '600', color: 'black' }}>{centertitle}</Text>
                         ) : null
                     }
                 </View>
@@ -59,7 +68,9 @@ const CustomHeader = ({
                     righticon ? (
                         <RightIconComponent name={rightIconName} size={30} />
                     ) : righttext ? (
+                        <TouchableOpacity onPress={onRightTextPress}>
                         <Text>{righttext}</Text>
+                        </TouchableOpacity>
                     ) : (
                         <View style={{ width: 30 }} />
                     )
