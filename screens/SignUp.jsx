@@ -9,7 +9,7 @@ import CustomButton from '../components/CustomButton';
 import LogIn from './LogIn';
 function SignUp({navigation}) {
   const [isChecked,setisChecked]=useState(false);
-    return (
+  return (
       <View>
         <CustomHeader
         lefticon={true}
@@ -23,10 +23,13 @@ function SignUp({navigation}) {
         <CustomTextInput
         placeHolder='Enter name'
         padd={10}
+
         
         />
-        <CustomTextInput placeHolder='Email' padd={10}/>
-        <CustomTextInput placeHolder='Password' padd={10}/>
+        <CustomTextInput placeHolder='Email' padd={10}
+        />
+        <CustomTextInput placeHolder='Password' padd={10}
+        />
         
         </View>
 
@@ -47,7 +50,7 @@ function SignUp({navigation}) {
         </View>
             <CustomButton
             title='SignUp'
-            />
+             />
             <TouchableOpacity>
                 <Text style={{fontSize:20,color:'#5DB075',fontWeight:'600'}} >Forgot your password?</Text>
             </TouchableOpacity>

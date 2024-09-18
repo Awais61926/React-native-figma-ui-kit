@@ -1,9 +1,11 @@
 import { View,Text, TouchableOpacity, Button } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import CustomHeader from "../components/CustomHeader";
 import CustomTextInput from "../components/CustomTextInput";
 import CustomButton from "../components/CustomButton";
+
 function LogIn({navigation}){
+    
     return(
     <View>
         <View>

@@ -7,6 +7,7 @@ type inputType = {
     rightText?:any
 }
 const CustomTextInput = ({ padd,placeHolder, value,rightText }: inputType) => {
+    
     return (
         <View>
             {
