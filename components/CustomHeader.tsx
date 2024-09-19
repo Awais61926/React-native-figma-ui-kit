@@ -47,7 +47,7 @@ const CustomHeader = ({
                     ) :
                     lefttext ? (
                         <View>
-                            <Text>{lefttext}</Text>
+                            <Text style={{color:'#5DB075'}}>{lefttext}</Text>
                             </View>
                     ): (
                         <View></View>
@@ -69,7 +69,7 @@ const CustomHeader = ({
                         <RightIconComponent name={rightIconName} size={30} />
                     ) : righttext ? (
                         <TouchableOpacity onPress={onRightTextPress}>
-                        <Text>{righttext}</Text>
+                        <Text style={{color:'#5DB075'}}>{righttext}</Text>
                         </TouchableOpacity>
                     ) : (
                         <View style={{ width: 30 }} />
