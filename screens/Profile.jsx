@@ -24,22 +24,29 @@ export default function Profile() {
             time: 10,
         }
     ]
+    const data2 = [
+        {
+            picuri: require('./aa2.png'),
+        }
+    ]
 
     return (
-        <View style={{ backgroundColor: '#5DB075' }}>
-            <View style={{ height: 246 }}>
-                <CustomHeader
-                    centertitle='Profile'
-                    lefttext='Settings'
-                    righttext='Logout'
-                    Ccolor='white'
-                    Ctitlecolor='white'
-                />
-                <View style={{ width: 316, height: 316, borderRadius: 158, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
-                    <Image
-                        source={require('./aa.png')} // Static image
-                        style={{ width: 300, height: 300, borderRadius: 150 }}
+        <View style={{ height: '90%' }}>
+            <View style={{ backgroundColor: '#5DB075', height: 246 }}>
+                <View>
+                    <CustomHeader
+                        centertitle='Profile'
+                        lefttext='Settings'
+                        righttext='Logout'
+                        Ccolor='white'
+                        Ctitlecolor='white'
                     />
+                    <View style={{ width: 316, height: 316, borderRadius: 158, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
+                        <Image
+                            source={require('./aa.png')} // Static image
+                            style={{ width: 300, height: 300, borderRadius: 150 }}
+                        />
+                    </View>
                 </View>
                 <View style={{ justifyContent: 'center', alignItems: 'center', padding: 5 }}>
                     <Text style={styles.heading}>Victoria Robertson</Text>
@@ -74,25 +81,60 @@ export default function Profile() {
                         </>
                     )}
                 </View>
-                <View>
-                    <FlatList
-                        data={data}
-                        renderItem={({ item }) => (
-                            <View style={{ flexDirection: 'row', padding: 10 }}>
-                                <Image
-                                    source={item.picuri} 
-                                    style={{ width: 50, height: 50, borderRadius: 25, marginRight: 10 }}
-                                />
-                                <View>
-                                    <Text style={styles.txt}>{item.name}</Text>
-                                    <Text>{item.message}</Text>
+                <View style={{ height: '100%' }}>
+                    {isPostsSelected === true ? (
+                        <FlatList
+
+                            scrollEnabled={true}
+                            data={data}
+                            renderItem={({ item }) => (
+                                <View style={{ flexDirection: 'row', padding: 5, widt: '100%' }}>
+
+                                    <Image
+                                        source={item.picuri}
+                                        style={{ width: 50, height: 50, marginRight: 5 }}
+                                    />
+                                    <View style={{ width: '85%', height: '100%' }}>
+                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                            <Text style={styles.txt}>{item.name}</Text>
+                                            <Text>{item.time} min ago</Text>
+
+                                        </View>
+                                        <Text>{item.message}</Text>
+
+                                    </View>
+
                                 </View>
+                            )}
+                        />) : (
+                        <FlatList
+                            data={data2}
+                            renderItem={({ item }) => (
                                 <View>
-                                    <Text>{item.time} min ago</Text>
+
+                                    <View style={{ alignItems: 'center' }}>
+                                        <Image
+                                            source={item.picuri}
+                                            style={{ width: '90%', height: 200, marginRight: 5 }}
+                                        />
+
+                                    </View>
+                                    
+                                    <Text style={{
+                                    marginLeft:20,
+                                    fontSize: 30,
+                                        fontWeight: 'semibold',
+                                        color: 'black',
+                                    }}>Header</Text>
+                                    
                                 </View>
-                            </View>
-                        )}
-                    />
+
+
+                            )}
+
+                        />
+                    )
+                    }
                 </View>
             </View>
         </View>
